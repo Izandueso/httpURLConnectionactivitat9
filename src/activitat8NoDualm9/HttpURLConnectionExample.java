@@ -19,20 +19,29 @@ public class HttpURLConnectionExample {
 		
 		HttpURLConnectionExample http = new HttpURLConnectionExample();
 		
-		System.out.println();
+		System.out.println("Quieres utilizar el metodo GET o PUT?");
+		System.out.println("Escribe 1 para utilizar GET");
+		System.out.println("Escribe 2 para utilizar PUT");
+		int getput = teclado.nextInt();
 		
-		System.out.println("Testing 1 - Send Http GET request");
-		http.sendGet();
-		
-		System.out.println("\nTesting 2 - Send Http POST request");
-		http.sendPost();
+		if(getput == 1){
+			System.out.println("Testing 1 - Send Http GET request");
+			http.sendGet();
+		}else if (getput == 2){
+			System.out.println("\nTesting 2 - Send Http POST request");
+			http.sendPost();
+		}else{
+			System.out.println("Numero introducido no valido");
+		}
 
 	}
 
 	// HTTP GET request
 	private void sendGet() throws Exception {
-
-		String url = "http://www.insbaixcamp.org/";
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Introdueix URL: http://www.insbaixcamp.org/");
+		String url = teclado.nextLine();
 		
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
@@ -65,8 +74,10 @@ public class HttpURLConnectionExample {
 	
 	// HTTP POST request
 	private void sendPost() throws Exception {
-
-		String url = "http://www.insbaixcamp.cat/moodle/";
+		Scanner teclado = new Scanner(System.in);
+		
+		System.out.println("Introdueix URL: http://www.insbaixcamp.org/");
+		String url = teclado.nextLine();
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
